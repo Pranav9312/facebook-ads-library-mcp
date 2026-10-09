@@ -284,5 +284,12 @@ def scrape_ad_library_url(url: str, wait_seconds: int = 8, scroll_rounds: int = 
 
 
 if __name__ == "__main__":
-    print("Facebook Ad Library MCP — scraping tools: search_ad_library, scrape_ad_library_url")
-    mcp.run(transport="stdio")
+    import os
+
+    mcp.run(
+        transport="http",
+        host="0.0.0.0",
+        port=int(os.environ.get("PORT", "8000")),
+        path="/mcp",
+    )
+    
